@@ -1,0 +1,12 @@
+TODO
+Implement hash table, trees.
+
+* Notes on Data Structure and Algorithms
+** Data Structure
+*** Queue
+    - PIC used linked list to implement
+    - In c++, #include<queue>, queue<int> Q, .push(), .empty(), .front(), .pop()
+*** Stack
+    - .top()
+*** Linked List
+*** Binary Search Tree
