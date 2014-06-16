@@ -10,3 +10,50 @@ Implement hash table, trees.
     - .top()
 *** Linked List
 *** Binary Search Tree
+
+** Algorithms
+*** Divide & Conquer
+    - Problem : Find the number of inversions in an array
+    - inversion: i<j, A[i] > A[j]
+    - = number of crossings
+    - Purpose: similarity of two ranked lists
+    - Big Idea: findLeft + findRight + findSplit
+    - To findSplit, piggyback on MergeSort
+      when mergin, when y in the second array is coppied, add # of elements in
+      the first array, that's the inversion for y.
+
+*** Closest Pair
+    - Problem: Find the closest pair of points
+    - The brute-force method: O(n^2)
+    - If linear, O(n*log(n)): sort O(nlog(n)), then O(n)
+    - Goal: O(n*log(n))
+    - Procedure:
+      1. sort x, y separately
+      2. Left half = Q; Right half = R;
+      3. findLeft, findRight, findSplit
+      4. findSplit( O(n) ):
+      5. Let x_bar be the biggest in the left half,
+         only care about p in [x-d, d+d]
+
+
+*** Union Find
+    - Problem: Perform a series of "union" commands on objects, we are
+    wondering if two objects are connected ?
+    - Applications: digital photo(pixels), social network
+**** Quick Find
+     - Objects as array indices, array elements are ids,
+       elements with same id are "connected."
+     - Initialize (n): id[i] = i;
+     - Union (n): forall, if == pid -> = qid
+     - Find (1): id[p] == id[q]
+**** Quick Union
+     - Same id[], but contains parent
+     - Initialize (n): same
+     - Union (n): union(a, b): root of a becomes a child of root of b
+     - Find (n): root(a) == root(b)
+     - Problem : The tree can get tall
+**** Weighted & Path Compression
+     - Only attach small tree to big
+     - Depth at most lgN
+**** Applications
+     - Percolation (Grids, if there is a path from top to bottom)
